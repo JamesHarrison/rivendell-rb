@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
     "lib/rivendell/log.rb",
     "lib/rivendell/log_item.rb",
     "lib/rivendell/tools.rb",
+    "rivendell.gemspec",
     "test/helper.rb",
     "test/test_rivendellrb.rb"
   ]
