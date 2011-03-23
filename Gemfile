@@ -7,7 +7,6 @@ gem 'dm-types'
 gem 'dm-mysql-adapter'
 gem 'dm-validations'
 gem 'trollop'
-gem 'bundler'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
