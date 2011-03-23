@@ -12,16 +12,21 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "rivendellrb"
-  gem.homepage = "http://github.com/JamesHarrison/rivendellrb"
+  gem.name = "rivendell"
+  gem.homepage = "http://github.com/JamesHarrison/rivendell"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "james@balvedastudios.com"
+  gem.summary = %Q{Ruby and Datamapper interface to Rivendell's MySQL database, with utilities and tools}
+  gem.description = %Q{This is a set of wrappers and tools for working with the Rivendell broadcast automation system to automatically create logs and work with the library}
+  gem.email = "james@talkunafraid.co.uk"
   gem.authors = ["James Harrison"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
-  #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
+  gem.add_runtime_dependency 'dm-core', '~> 1.1.0'
+  gem.add_runtime_dependency 'dm-types'
+  gem.add_runtime_dependency 'dm-mysql-adapter'
+  gem.add_runtime_dependency 'dm-validations'
+  gem.add_runtime_dependency 'trollop'
+  gem.add_runtime_dependency 'inifile'
   #  gem.add_development_dependency 'rspec', '> 1.2.3'
 end
 Jeweler::RubygemsDotOrgTasks.new

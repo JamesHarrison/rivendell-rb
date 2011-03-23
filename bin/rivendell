@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'rivendell'
+require 'trollop'
+SUB_COMMANDS = %w(log cart)
+opts = Trollop::options do
+  banner <<-EOS
+This is a Ruby interface to Rivendell's log and cart databases, 
+allowing simple log automation tasks not possible in Rivendell itself.
+
+Usage:
+	rivendell subcommand [options]
+
+The subcommands available are: #{SUB_COMMANDS.join(", ")}
+
+Use rivendell subcommand --help to see options for that subcommand.
+
+EOS
+  opt :user, "User that is performing the tasks in Rivendell", :type=>String, :default=>'user'
+  stop_on SUB_COMMANDS
+end
+cmd = ARGV.shift
+cmd_opts = case cmd
+  when "log"
+    Trollop::options do
+      opt :name, "Log name to work with", :type => String
+      opt :service, "Service to work with", :type => String
+      opt :action, "Action to perform on the given log. Can be one of delete, create.", :default => 'create', :type => String
+    end
+  when "cart"
+    Trollop::options do
+      opt :number, :type => Integer
+    end
+  else
+    Trollop::die "unknown subcommand #{cmd.inspect} - must be one of #{SUB_COMMANDS.join(", ")}"
+  end
+Trollop::die "no subcommand specified" unless cmd
+Trollop::die "no user specified" unless opts[:user]
+Trollop::die "log name must be specified" if cmd == 'log' and not cmd_opts[:name_given]
+Trollop::die "service name must be specified" if cmd == 'log' and not cmd_opts[:service_given]
+Trollop::die "cart number must be specified" if cmd == 'cart' and cmd_opts[:number].to_i < 0
+Rivendell::Tools.run(opts, cmd, cmd_opts)
