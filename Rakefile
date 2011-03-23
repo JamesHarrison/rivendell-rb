@@ -21,7 +21,7 @@ Jeweler::Tasks.new do |gem|
   gem.authors = ["James Harrison"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
-  gem.add_runtime_dependency 'dm-core', '~> 1.0'
+  gem.add_runtime_dependency 'dm-core'
   gem.add_runtime_dependency 'dm-types'
   gem.add_runtime_dependency 'dm-mysql-adapter'
   gem.add_runtime_dependency 'dm-validations'

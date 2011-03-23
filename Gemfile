@@ -1,3 +1,4 @@
+gemspec :development_group=>:development
 source "http://rubygems.org"
 
 gem 'inifile'
