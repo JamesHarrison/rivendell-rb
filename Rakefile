@@ -13,7 +13,7 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "rivendell"
-  gem.homepage = "http://github.com/JamesHarrison/rivendell"
+  gem.homepage = "http://github.com/JamesHarrison/rivendell-rb"
   gem.license = "MIT"
   gem.summary = %Q{Ruby and Datamapper interface to Rivendell's MySQL database, with utilities and tools}
   gem.description = %Q{This is a set of wrappers and tools for working with the Rivendell broadcast automation system to automatically create logs and work with the library}

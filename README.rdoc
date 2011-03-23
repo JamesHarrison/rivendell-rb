@@ -1,8 +1,24 @@
-= rivendellrb
+= rivendell-rb
 
-RivendellRB is a Ruby+Datamapper interface to the Rivendell broadcast automation system- specifically the logs and libraries.
+Rivendell-rb is a Ruby+Datamapper interface to the Rivendell broadcast automation system- specifically the logs and libraries.
 
-== Contributing to rivendellrb
+== Installation
+
+Should be a straightforward
+
+  gem install rivendell
+
+
+== Tools
+
+Rivendell-rb gives you a command-line utility, 'rivendell'. It can currently be used for basic operations. For example:
+
+  rivendell log -s Production -n MyNewLog -a create
+
+Will create the log MyNewLog under the Production service. It will do nothing if the log already exists.
+
+
+== Contributing to rivendell-rb
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
@@ -14,5 +30,5 @@ RivendellRB is a Ruby+Datamapper interface to the Rivendell broadcast automation
 == Copyright
 
 Copyright (c) 2011 James Harrison. See LICENSE.txt for further details.
-
+Rivendell is (c) 2007 Paravel Systems.
 
