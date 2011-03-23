@@ -2,6 +2,8 @@
 
 Rivendell-rb is a Ruby+Datamapper interface to the Rivendell broadcast automation system- specifically the logs and libraries.
 
+It is tested only to work with Rivendell 1.7.2. If this causes your sustainer to fail, Rivendell to explode, your studio to spontaneously combust, etc... well, sorry. Test thoroughly before you use this in production. Rivendell 2.0 is very much not supported, since it's not stable yet. Once it's stable, support will be added.
+
 == Installation
 
 Should be a straightforward
