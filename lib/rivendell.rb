@@ -2,7 +2,8 @@ require "rubygems"
 require "bundler/setup"
 Bundler.require(:default)
 module Rivendell
-#  DataMapper::Model.raise_on_save_failure = true
+  # DataMapper::Logger.new(STDOUT, :debug)
+  # DataMapper::Model.raise_on_save_failure = true
   if File.exists?("/etc/rc.conf")
     # If we can, pull the config from Rivendell's own configuration.
     rdconf = IniFile.load("/etc/rd.conf")
@@ -12,6 +13,9 @@ module Rivendell
     # Rivendell's default for most setups
     DataMapper.setup(:default, 'mysql://rduser:letmein@localhost/Rivendell')
   end
+
+  DataMapper.repository(:default).adapter.field_naming_convention = 
+    DataMapper::NamingConventions::Field::Underscored 
 end
 require 'rivendell/log_item'
 require 'rivendell/log'
