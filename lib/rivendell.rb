@@ -1,6 +1,9 @@
-require "rubygems"
-require "bundler/setup"
-Bundler.require(:default)
+require 'dm-core'
+require 'dm-mysql-adapter'
+require 'dm-serializer'
+require 'dm-types'
+require 'dm-validations'
+
 module Rivendell
   # DataMapper::Logger.new(STDOUT, :debug)
   # DataMapper::Model.raise_on_save_failure = true
