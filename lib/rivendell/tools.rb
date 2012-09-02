@@ -26,8 +26,10 @@ class Rivendell::Tools
   end
 
   def self.script(opts, global_opts)
+    require 'logger'
+    logger = Logger.new($stdout)
     arguments = opts[:arguments]
-    eval File.read(opts[:script])
+    eval File.read(opts[:script]), nil, opts[:script], 0
   end
 
 end
