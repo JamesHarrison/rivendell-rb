@@ -21,6 +21,8 @@ require 'rivendell/log_item'
 require 'rivendell/log'
 require 'rivendell/cart'
 require 'rivendell/task'
+require 'rivendell/dropbox'
+require 'rivendell/group'
 require 'rivendell/tools'
 
 DataMapper.finalize

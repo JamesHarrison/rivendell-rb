@@ -1,13 +1,22 @@
 class Rivendell::Cart
   include DataMapper::Resource
   storage_names[:default] = 'CART'
+
   property :number, Integer, :key => true
-  property :type, Integer
-  property :group_name, String, :length => 10
-  property :title, String
+  property :type, Integer, :default => 1, :required => true
+  property :group_name, String, :length => 10, :required => true
+  property :title, String, :required => true
   property :artist, String
   property :album, String
   property :year, Date
+
+  belongs_to :group, :child_key => [ :group_name ], :parent_key => [ :name ]
+
+  before :valid?, :use_free_number
+
+  def use_free_number(context = :default)
+    self.number = group.free_cart_number if group
+  end
 
   def self.duplicated(*fields)
     sql_fields = fields.join(", ")
