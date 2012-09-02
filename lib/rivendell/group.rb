@@ -26,6 +26,11 @@ class Rivendell::Group
     default_low_cart..default_high_cart
   end
 
+  def default_cart_range=(range)
+    self.default_low_cart = range.begin
+    self.default_high_cart = range.end
+  end
+
   def cart_numbers
     carts.all(:fields => [:number], :order => [ :number ]).map(&:number)
   end

@@ -24,7 +24,8 @@ class Rivendell::Cart
 
     repository(:default).adapter.select(query).map do |duplicated_group|
       field_values = fields.inject({}) { |map, field| map[field] = duplicated_group.send(field); map }
-      { :numbers => duplicated_group.numbers.split(","), :fields => field_values }
+      numbers = duplicated_group.numbers.split(",").map(&:to_i)
+      { :numbers => numbers, :fields => field_values }
     end
   end
 end

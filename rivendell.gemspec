@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'dm-serializer'
   s.add_runtime_dependency 'dm-types'
   s.add_runtime_dependency 'dm-validations'
+  s.add_runtime_dependency 'dm-transactions'
   s.add_runtime_dependency 'inifile'
   s.add_runtime_dependency 'trollop'
 end
