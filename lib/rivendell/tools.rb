@@ -25,4 +25,9 @@ class Rivendell::Tools
     IRB.start
   end
 
+  def self.script(opts, global_opts)
+    arguments = opts[:arguments]
+    eval File.read(opts[:script])
+  end
+
 end

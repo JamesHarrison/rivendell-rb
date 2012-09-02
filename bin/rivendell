@@ -2,7 +2,7 @@
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 require 'rivendell'
 require 'trollop'
-SUB_COMMANDS = %w(log cart console)
+SUB_COMMANDS = %w(log cart console script)
 opts = Trollop::options do
   banner <<-EOS
 This is a Ruby interface to Rivendell's log and cart databases, 
@@ -33,6 +33,8 @@ cmd_opts = case cmd
     end
   when "console"
     {}
+  when "script"
+    { :script => ARGV.shift, :arguments => ARGV }
   else
     Trollop::die "unknown subcommand #{cmd.inspect} - must be one of #{SUB_COMMANDS.join(", ")}"
   end
