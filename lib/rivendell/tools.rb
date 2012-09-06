@@ -1,13 +1,9 @@
 class Rivendell::Tools
   # Runs all the command-line stuff, gets passed global options, the subcommand and the subcommand's options
   def self.run(opts, cmd, cmd_opts)
-    puts opts
-    puts cmd
-    puts cmd_opts
-    if cmd == 'log'
-      self.log(cmd_opts, opts)
-    end
+    send cmd, cmd_opts, opts
   end
+
   # Handles the log subcommand
   def self.log(opts, global_opts)
     log_name = opts[:name]
@@ -20,4 +16,20 @@ class Rivendell::Tools
       end
     end
   end
+
+  def self.console(opts, global_opts)
+    # include Rivendell
+    require 'irb'
+
+    ARGV.clear
+    IRB.start
+  end
+
+  def self.script(opts, global_opts)
+    require 'logger'
+    logger = Logger.new($stdout)
+    arguments = opts[:arguments]
+    eval File.read(opts[:script]), nil, opts[:script], 0
+  end
+
 end

@@ -2,7 +2,7 @@
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 require 'rivendell'
 require 'trollop'
-SUB_COMMANDS = %w(log cart)
+SUB_COMMANDS = %w(log cart console script)
 opts = Trollop::options do
   banner <<-EOS
 This is a Ruby interface to Rivendell's log and cart databases, 
@@ -31,6 +31,10 @@ cmd_opts = case cmd
     Trollop::options do
       opt :number, :type => Integer
     end
+  when "console"
+    {}
+  when "script"
+    { :script => ARGV.shift, :arguments => ARGV }
   else
     Trollop::die "unknown subcommand #{cmd.inspect} - must be one of #{SUB_COMMANDS.join(", ")}"
   end
@@ -39,4 +43,6 @@ Trollop::die "no user specified" unless opts[:user]
 Trollop::die "log name must be specified" if cmd == 'log' and not cmd_opts[:name_given]
 Trollop::die "service name must be specified" if cmd == 'log' and not cmd_opts[:service_given]
 Trollop::die "cart number must be specified" if cmd == 'cart' and cmd_opts[:number].to_i < 0
+
+Rivendell::Database.establish_connection
 Rivendell::Tools.run(opts, cmd, cmd_opts)

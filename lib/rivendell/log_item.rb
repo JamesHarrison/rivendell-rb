@@ -1,43 +1,43 @@
 class Rivendell::LogItem
   include DataMapper::Resource
-  property :ID,               Serial
-  property :COUNT,            Integer,        :required => true
-  property :TYPE,             Integer,        :default => 0, :required => true
-  property :SOURCE,           Integer,        :required => true, :default => 0
-  property :START_TIME,       Integer,        :default => 0
-  property :GRACE_TIME,       Integer,        :required => true, :default => -1
-  property :CART_NUMBER,      Integer,        :required => true, :default => 0
-  property :TIME_TYPE,        Integer,        :required => true, :default => 0
-  property :POST_POINT,       Enum['Y','N'],  :required => true, :default => 'N'
-  property :TRANS_TYPE,       Integer,        :required => true, :default => 1
-  property :START_POINT,      Integer,        :required => true, :default => -1
-  property :END_POINT,        Integer,        :required => true, :default => -1
-  property :FADEUP_POINT,     Integer,        :default => -1
-  property :FADEUP_GAIN,      Integer,        :default => -3000
-  property :FADEDOWN_POINT,   Integer,        :default => -1
-  property :FADEDOWN_GAIN,    Integer,        :default => -3000
-  property :SEGUE_START_POINT,Integer,        :required => true, :default => -1
-  property :SEGUE_END_POINT,  Integer,        :required => true, :default => -1
-  property :SEGUE_GAIN,       Integer,        :default => -3000
-  property :DUCK_UP_GAIN,     Integer,        :default => 0
-  property :DUCK_DOWN_GAIN,   Integer,        :default => 0
-  property :COMMENT,          String,         :length => 255
-  property :LABEL,            String,         :length => 64
-  property :ORIGIN_USER,      String,         :length => 255, :default => 'admin'
-  property :ORIGIN_DATETIME,  DateTime
-  property :LINK_EVENT_NAME,  String,         :length => 64
-  property :LINK_START_TIME,  Integer
-  property :LINK_LENGTH,      Integer,        :default => 0
-  property :LINK_START_SLOP,  Integer,        :default => 0
-  property :LINK_END_SLOP,    Integer,        :default => 0
-  property :LINK_ID,          Integer,        :default => -1
-  property :LINK_EMBEDDED,    Enum['Y','N'],  :default => 'N'
-  property :EXT_START_TIME,   Time
-  property :EXT_LENGTH,       Integer
-  property :EXT_CART_NAME,    String,         :length => 32
-  property :EXT_DATA,         String,         :length => 32
-  property :EXT_EVENT_ID,     String,         :length => 32
-  property :EXT_ANNC_TYPE,    String,         :length => 8
+  property :id,               Serial
+  property :count,            Integer,        :required => true
+  property :type,             Integer,        :default => 0, :required => true
+  property :source,           Integer,        :required => true, :default => 0
+  property :start_time,       Integer,        :default => 0
+  property :grace_time,       Integer,        :required => true, :default => -1
+  property :cart_number,      Integer,        :required => true, :default => 0
+  property :time_type,        Integer,        :required => true, :default => 0
+  property :post_point,       Enum['Y','N'],  :required => true, :default => 'N'
+  property :trans_type,       Integer,        :required => true, :default => 1
+  property :start_point,      Integer,        :required => true, :default => -1
+  property :end_point,        Integer,        :required => true, :default => -1
+  property :fadeup_point,     Integer,        :default => -1
+  property :fadeup_gain,      Integer,        :default => -3000
+  property :fadedown_point,   Integer,        :default => -1
+  property :fadedown_gain,    Integer,        :default => -3000
+  property :segue_start_point,Integer,        :required => true, :default => -1
+  property :segue_end_point,  Integer,        :required => true, :default => -1
+  property :segue_gain,       Integer,        :default => -3000
+  property :duck_up_gain,     Integer,        :default => 0
+  property :duck_down_gain,   Integer,        :default => 0
+  property :comment,          String,         :length => 255
+  property :label,            String,         :length => 64
+  property :origin_user,      String,         :length => 255, :default => 'admin'
+  property :origin_datetime,  DateTime
+  property :link_event_name,  String,         :length => 64
+  property :link_start_time,  Integer
+  property :link_length,      Integer,        :default => 0
+  property :link_start_slop,  Integer,        :default => 0
+  property :link_end_slop,    Integer,        :default => 0
+  property :link_id,          Integer,        :default => -1
+  property :link_embedded,    Enum['Y','N'],  :default => 'N'
+  property :ext_start_time,   Time
+  property :ext_length,       Integer
+  property :ext_cart_name,    String,         :length => 32
+  property :ext_data,         String,         :length => 32
+  property :ext_event_id,     String,         :length => 32
+  property :ext_annc_type,    String,         :length => 8
   START_TIME_TYPE = {:imported => 0, :logged => 1, :predicted => 2, :actual => 3, :initial => 4}
   TIME_TYPE = {:relative => 0, :hard => 1}
   TRANS_TYPE = {:play => 0, :segue => 1, :stop => 2, :no_trans => 255}
